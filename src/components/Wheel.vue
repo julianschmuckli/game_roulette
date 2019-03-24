@@ -15,7 +15,9 @@ export default{
     return {
       currentSpin: 0,
       currentSpinAnimated: 0,
-      rotateDirectionRight: true
+      rotateDirectionLeft: true,
+      rotateCycle: 3,
+      rotateSpeed: 2
     }
   },
   computed: {
@@ -68,30 +70,34 @@ export default{
   methods: {
     spin(){
       this.currentSpin = Math.floor(Math.random() * 37) * 10;
+      this.rotateCycle = 3;
       requestAnimationFrame(this.rotateAnimation);
     },
     rotateAnimation(){
       //Add steps for animation
-      if(this.rotateDirectionRight){
-        this.currentSpinAnimated += 1;
+      if(this.rotateDirectionLeft){
+        this.currentSpinAnimated += 2;
       } else {
-        this.currentSpinAnimated -= 1;
+        this.currentSpinAnimated -= 2;
       }
 
       //If reached one cycle then reset
-      if(this.rotateDirectionRight && this.currentSpinAnimated > 360){
+      if(this.rotateDirectionLeft && this.currentSpinAnimated > 360){
         this.currentSpinAnimated = -10;
       }
-      if(!this.rotateDirectionRight && this.currentSpinAnimated < 0){
+      if(!this.rotateDirectionLeft && this.currentSpinAnimated < 0){
         this.currentSpinAnimated = 370;
       }
 
       //Has reached the number?
       if(this.currentSpin != this.currentSpinAnimated){
         requestAnimationFrame(this.rotateAnimation);
+      } else if(this.currentSpin == this.currentSpinAnimated && this.rotateCycle > 0){
+        this.rotateCycle--;
+        requestAnimationFrame(this.rotateAnimation);
       } else {
         this.currentSpin = Math.floor(this.currentSpinAnimated / 10);
-        this.rotateDirectionRight = !this.rotateDirectionRight;
+        this.rotateDirectionLeft = !this.rotateDirectionRight;
       }
     }
   }
