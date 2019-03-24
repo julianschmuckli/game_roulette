@@ -1,5 +1,5 @@
 # VueJS Roulette
-This is a Roulette game written in VueJS.
+This is a Roulette game written in VueJS. It is a side project to learn more with VueJS and the first time using Netlify to deploy the application.
 
 ## Status
 Deployment:
