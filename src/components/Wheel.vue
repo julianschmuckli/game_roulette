@@ -2,7 +2,7 @@
   <div id="wheel">
     <img src="../assets/wheel.svg" width="400" height="400" :style="spinStyle">
     <br>
-    <p>Rotation: {{ currentSpin * 10 }}<br>
+    <p>Rotation: {{ currentSpinAnimated }}<br>
       Number: {{ currentNumber }}</p>
     <button @click="spin">Spin</button>
   </div>
@@ -13,12 +13,14 @@ export default{
   name: "Wheel",
   data(){
     return {
-      currentSpin: 0
+      currentSpin: 0,
+      currentSpinAnimated: 0,
+      rotateDirectionRight: true
     }
   },
   computed: {
     spinStyle(){
-      return "transform: rotate(" + (this.currentSpin / 37 * 36) * 10 + "deg)";
+      return "transform: rotate(" + (this.currentSpinAnimated / 37 * 36) + "deg)";
     },
     currentNumber(){
       var map = {
@@ -65,7 +67,32 @@ export default{
   },
   methods: {
     spin(){
-      this.currentSpin = Math.floor(Math.random() * 37);
+      this.currentSpin = Math.floor(Math.random() * 37) * 10;
+      requestAnimationFrame(this.rotateAnimation);
+    },
+    rotateAnimation(){
+      //Add steps for animation
+      if(this.rotateDirectionRight){
+        this.currentSpinAnimated += 1;
+      } else {
+        this.currentSpinAnimated -= 1;
+      }
+
+      //If reached one cycle then reset
+      if(this.rotateDirectionRight && this.currentSpinAnimated > 360){
+        this.currentSpinAnimated = -10;
+      }
+      if(!this.rotateDirectionRight && this.currentSpinAnimated < 0){
+        this.currentSpinAnimated = 370;
+      }
+
+      //Has reached the number?
+      if(this.currentSpin != this.currentSpinAnimated){
+        requestAnimationFrame(this.rotateAnimation);
+      } else {
+        this.currentSpin = Math.floor(this.currentSpinAnimated / 10);
+        this.rotateDirectionRight = !this.rotateDirectionRight;
+      }
     }
   }
 }
