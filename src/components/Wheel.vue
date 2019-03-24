@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import { GameStoreChanger } from "../services/store.js";
+
 export default{
   name: "Wheel",
   data(){
@@ -246,6 +248,7 @@ export default{
   watch:{
     currentNumber(val){
       if(val.number !== "..."){
+        GameStoreChanger.setCurrentNumber(val);
         this.lastNumbers.push(Object.assign(val, {id: this.lastNumbers.length}));
       }
     }

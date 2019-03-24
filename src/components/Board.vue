@@ -69,6 +69,8 @@
 </template>
 
 <script>
+import { GameStore } from "../services/store.js";
+
 export default {
   name: "Board",
   data(){
@@ -83,8 +85,39 @@ export default {
     }
   },
   computed: {
+    currentNumber(){
+      return GameStore.currentNumber;
+    }
+  },
+  watch: {
+    currentNumber(val){
+      this.evaluate(val);
+    }
   },
   methods: {
+    evaluate(val){
+      var color = val.color;
+      var number = val.number;
+
+      //Colors
+      switch(color){
+        case "black":
+          this.red = 0;
+          this.black = this.black * 2;
+          break;
+        case "red":
+          this.black = 0;
+          this.red = this.red * 2;
+      }
+
+      if(number >= 1 && number <= 18) {
+        this.nineteenToThirtysix = 0;
+        this.oneToEighteen = this.oneToEighteen * 2;
+      } else if(number >= 19 && number <= 36){
+        this.oneToEighteen = 0;
+        this.nineteenToThirtysix = this.nineteenToThirtysix * 2;
+      }
+    },
     setChip(e){
       var element = e.target;
       if(element.nodeName === "DIV"){
