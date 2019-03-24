@@ -7,14 +7,21 @@
       <img src="../assets/wheel.svg" id="wheel_svg" width="400" height="400" :style="spinStyle">
     </div>
     <div id="wheel_meta">
-      <button @click="spin">Spin</button>
+      <button @click="spin" v-if="!isSpinning">Spin</button>
+      <button disabled v-else>Spin</button>
       <div style="width:100%;margin-top:30px;">
+        <h3>Now</h3>
         <div class="field" :style="'background-color: ' + this.currentNumber.color">
           {{ currentNumber.number }}
         </div>
       </div>
-      <div id="previousNumbers">
-        <span v-for="(number, index) in this.lastNumbers && index < 10" :key="number">{{ index + ": " + number }}</span>
+      <div id="previousNumbers" style="margin-top: 30px;">
+        <h3>Last Numbers</h3>
+        <span v-for="(number, index) in reversedLastNumbers" :key="number.id">
+          <div class="field" :style="'background-color: ' + number.color" v-if="index != 0 && index < 5">
+            {{ number.number }}
+          </div>
+        </span>
       </div>
     </div>
   </div>
@@ -194,6 +201,9 @@ export default{
       } else {
         return {number: "...", color: "grey"};
       }
+    },
+    reversedLastNumbers(){
+      return this.lastNumbers.slice().reverse();
     }
   },
   methods: {
@@ -236,7 +246,7 @@ export default{
   watch:{
     currentNumber(val){
       if(val.number !== "..."){
-        this.lastNumbers.push(val);
+        this.lastNumbers.push(Object.assign(val, {id: this.lastNumbers.length}));
       }
     }
   }

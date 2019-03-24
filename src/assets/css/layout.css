@@ -32,8 +32,12 @@ button{
   transition: 0.3s;
 }
 
-button:hover{
+button:hover, button:disabled{
   background-color: lightgrey;
+}
+
+button:disabled{
+  cursor: not-allowed;
 }
 
 .field{
@@ -45,4 +49,5 @@ button:hover{
   vertical-align: middle;
   font-size: 20px;
   font-weight: bold;
+  display: inline-block;
 }
