@@ -2,7 +2,7 @@
   <div id="app">
     <div class="container">
       <Wheel />
-      <Board />
+      <Board style="margin-top:70px;" />
     </div>
   </div>
 </template>
