@@ -56,17 +56,66 @@
         </tr>
         <tr>
           <td class="nothing"></td>
-          <td class="normal" colspan="2"><div>19 - 36</div></td>
-          <td class="normal" colspan="2"><div>Impair</div></td>
-          <td class="normal black" colspan="2"><div>Black</div></td>
-          <td class="normal red" colspan="2"><div>Red</div></td>
-          <td class="normal" colspan="2"><div>Pair</div></td>
-          <td class="normal" colspan="2"><div>1 - 18</div></td>
+          <td class="normal" colspan="2" data-name="nineteenToThirtysix" @click="setChip"><div>19 - 36</div><div class="chip" v-if="nineteenToThirtysix != 0">{{ nineteenToThirtysix }}</div></td>
+          <td class="normal" colspan="2" data-name="impair" @click="setChip"><div>Impair</div><div class="chip" v-if="impair != 0">{{ impair }}</div></td>
+          <td class="normal black" colspan="2" data-name="black" @click="setChip"><div>Black</div><div class="chip" v-if="black != 0">{{ black }}</div></td>
+          <td class="normal red" colspan="2" data-name="red" @click="setChip"><div>Red</div><div class="chip" v-if="red != 0">{{ red }}</div></td>
+          <td class="normal" colspan="2" data-name="pair" @click="setChip"><div>Pair</div><div class="chip" v-if="pair != 0">{{ pair }}</div></td>
+          <td class="normal" colspan="2" data-name="oneToEighteen" @click="setChip"><div>1 - 18</div><div class="chip" v-if="oneToEighteen != 0">{{ oneToEighteen }}</div></td>
         </tr>
       </table>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: "Board",
+  data(){
+    return {
+      direct_numbers: [], //When placed on just one full number
+      black: 0, //Placed on black
+      red: 0, //Placed on red
+      pair: 0, //Placed on pair
+      impair: 0, //Placed on impair
+      oneToEighteen: 0, //Placed 1 - 18
+      nineteenToThirtysix: 0 //Placed 19 -36
+    }
+  },
+  computed: {
+  },
+  methods: {
+    setChip(e){
+      var element = e.target;
+      if(element.nodeName === "DIV"){
+        element = element.parentElement;
+      }
+      var type = element.getAttribute("data-name");
+
+      switch(type){
+        case 'black':
+          this.black++;
+          break;
+        case 'red':
+          this.red++;
+          break;
+        case 'pair':
+          this.pair++;
+          break;
+        case 'impair':
+          this.impair++;
+          break;
+        case 'oneToEighteen':
+          this.oneToEighteen++;
+          break;
+        case 'nineteenToThirtysix':
+          this.nineteenToThirtysix++;
+          break;
+      }
+    }
+  }
+}
+</script>
 
 <style>
 .outer_board{
@@ -75,6 +124,7 @@
 }
 
 .board td {
+  position: relative;
   border: white 2px solid;
   padding: 10px;
   font-weight: bold;
@@ -83,7 +133,7 @@
 }
 
 .board td.nothing{
-  border:none;
+  border: none;
   cursor: default;
 }
 
@@ -108,6 +158,19 @@
   color: black;
 }
 .green{
-  color:green;
+  color: green;
+}
+
+.chip{
+  position: absolute;
+  top: 24%;
+  left: calc(50% - 12px);
+  opacity: 0.9;
+  display: inline;
+  background: #00f;
+  border-radius: 12px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: white;
 }
 </style>

@@ -30,6 +30,12 @@ export default {
 }
 body{
   background: #8E92B0;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -o-user-select: none;
+  -moz-user-select: none;
 }
 
 .container{
