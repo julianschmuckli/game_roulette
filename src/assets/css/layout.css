@@ -1,0 +1,48 @@
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+button{
+  background-color: #fff;
+  color:black;
+  padding: 10px 30px 10px 30px;
+  font-size:20px;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover{
+  background-color: lightgrey;
+}
+
+.field{
+  height: 30px;
+  width: 30px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: middle;
+  font-size: 20px;
+  font-weight: bold;
+}

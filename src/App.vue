@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <Wheel />
-    <Board />
+    <div class="container">
+      <Wheel />
+      <Board />
+    </div>
   </div>
 </template>
 
@@ -29,4 +31,10 @@ export default {
 body{
   background: #8E92B0;
 }
+
+.container{
+  margin-top: 30px;
+}
+
+@import "assets/css/layout.css";
 </style>
