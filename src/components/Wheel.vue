@@ -18,7 +18,7 @@
       <div id="previousNumbers" style="margin-top: 30px;">
         <h3>Last Numbers</h3>
         <span v-for="(number, index) in reversedLastNumbers" :key="number.id">
-          <div class="field" :style="'background-color: ' + number.color" v-if="index != 0 && index < 5">
+          <div class="field" :style="'background-color: ' + number.color" v-if="(isSpinning || index != 0) && index < 5">
             {{ number.number }}
           </div>
         </span>
