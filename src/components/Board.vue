@@ -50,18 +50,18 @@
         </tr>
         <tr>
           <td class="nothing"></td>
-          <td class="normal" colspan="4"><div>25 - 36</div></td>
-          <td class="normal" colspan="4"><div>13 - 24</div></td>
-          <td class="normal" colspan="4"><div>1 - 12</div></td>
+          <td class="normal" colspan="4" data-name="twentyfiveToThirtysix" @click="setChip"><div>25 - 36</div><Chip :value="twentyfiveToThirtysix" /></td>
+          <td class="normal" colspan="4" data-name="thirteenToTwentyfour" @click="setChip"><div>13 - 24</div><Chip :value="thirteenToTwentyfour" /></td>
+          <td class="normal" colspan="4" data-name="oneToTwelve" @click="setChip"><div>1 - 12</div><Chip :value="oneToTwelve" /></td>
         </tr>
         <tr>
           <td class="nothing"></td>
-          <td class="normal" colspan="2" data-name="nineteenToThirtysix" @click="setChip"><div>19 - 36</div><div class="chip" v-if="nineteenToThirtysix != 0">{{ nineteenToThirtysix }}</div></td>
-          <td class="normal" colspan="2" data-name="impair" @click="setChip"><div>Impair</div><div class="chip" v-if="impair != 0">{{ impair }}</div></td>
-          <td class="normal black" colspan="2" data-name="black" @click="setChip"><div>Black</div><div class="chip" v-if="black != 0">{{ black }}</div></td>
-          <td class="normal red" colspan="2" data-name="red" @click="setChip"><div>Red</div><div class="chip" v-if="red != 0">{{ red }}</div></td>
-          <td class="normal" colspan="2" data-name="pair" @click="setChip"><div>Pair</div><div class="chip" v-if="pair != 0">{{ pair }}</div></td>
-          <td class="normal" colspan="2" data-name="oneToEighteen" @click="setChip"><div>1 - 18</div><div class="chip" v-if="oneToEighteen != 0">{{ oneToEighteen }}</div></td>
+          <td class="normal" colspan="2" data-name="nineteenToThirtysix" @click="setChip"><div>19 - 36</div><Chip :value="nineteenToThirtysix" /></td>
+          <td class="normal" colspan="2" data-name="impair" @click="setChip"><div>Impair</div><Chip :value="impair" /></td>
+          <td class="normal black" colspan="2" data-name="black" @click="setChip"><div>Black</div><Chip :value="black" /></td>
+          <td class="normal red" colspan="2" data-name="red" @click="setChip"><div>Red</div><Chip :value="red" /></td>
+          <td class="normal" colspan="2" data-name="pair" @click="setChip"><div>Pair</div><Chip :value="pair" /></td>
+          <td class="normal" colspan="2" data-name="oneToEighteen" @click="setChip"><div>1 - 18</div><Chip :value="oneToEighteen" /></td>
         </tr>
       </table>
     </div>
@@ -70,6 +70,7 @@
 
 <script>
 import { GameStore } from "../services/store.js";
+import Chip from "../components/Chip";
 
 export default {
   name: "Board",
@@ -81,8 +82,14 @@ export default {
       pair: 0, //Placed on pair
       impair: 0, //Placed on impair
       oneToEighteen: 0, //Placed 1 - 18
-      nineteenToThirtysix: 0 //Placed 19 -36
+      nineteenToThirtysix: 0, //Placed 19 -36
+      oneToTwelve: 0, //Placed 1 - 12
+      thirteenToTwentyfour: 0, //Placed 13 - 24
+      twentyfiveToThirtysix: 0 //Placed 25 - 36
     }
+  },
+  components:{
+    Chip
   },
   computed: {
     currentNumber(){
@@ -110,6 +117,7 @@ export default {
           this.red = this.red * 2;
       }
 
+      //1 - 18 and 19 - 36
       if(number >= 1 && number <= 18) {
         this.nineteenToThirtysix = 0;
         this.oneToEighteen = this.oneToEighteen * 2;
@@ -117,6 +125,32 @@ export default {
         this.oneToEighteen = 0;
         this.nineteenToThirtysix = this.nineteenToThirtysix * 2;
       }
+
+      //Impair and Pair
+      if(number != 0 && number % 2 == 0){ //Pair
+        this.impair = 0;
+        this.pair = this.pair * 2;
+      } else if (number != 0 && number % 2 == 1) { //Impair
+        this.pair = 0;
+        this.impair = this.impair * 2;
+      }
+
+      //1 - 12 / 13 - 24 / 25 - 36
+      if(number >= 1 && number <= 12) {
+        this.thirteenToTwentyfour = 0;
+        this.twentyfiveToThirtysix = 0;
+        this.oneToTwelve = this.oneToTwelve * 3;
+      } else if (number >= 13 && number <= 24){
+        this.oneToTwelve = 0;
+        this.twentyfiveToThirtysix = 0;
+        this.thirteenToTwentyfour = this.thirteenToTwentyfour * 3;
+      } else if (number >= 25 && number <= 36){
+        this.oneToTwelve = 0;
+        this.thirteenToTwentyfour = 0;
+        this.twentyfiveToThirtysix = this.twentyfiveToThirtysix * 3;
+      }
+
+
     },
     setChip(e){
       var element = e.target;
@@ -125,26 +159,7 @@ export default {
       }
       var type = element.getAttribute("data-name");
 
-      switch(type){
-        case 'black':
-          this.black++;
-          break;
-        case 'red':
-          this.red++;
-          break;
-        case 'pair':
-          this.pair++;
-          break;
-        case 'impair':
-          this.impair++;
-          break;
-        case 'oneToEighteen':
-          this.oneToEighteen++;
-          break;
-        case 'nineteenToThirtysix':
-          this.nineteenToThirtysix++;
-          break;
-      }
+      this[type]++; //Increase the chip size
     }
   }
 }
@@ -192,18 +207,5 @@ export default {
 }
 .green{
   color: green;
-}
-
-.chip{
-  position: absolute;
-  top: 24%;
-  left: calc(50% - 12px);
-  opacity: 0.9;
-  display: inline;
-  background: #00f;
-  border-radius: 12px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: white;
 }
 </style>
