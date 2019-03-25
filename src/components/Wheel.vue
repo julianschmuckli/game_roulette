@@ -2,7 +2,7 @@
   <div id="wheel">
     <div id="wheel_image">
       <div>
-        \/
+        &#9660;
       </div>
       <img src="../assets/wheel.svg" id="wheel_svg" width="400" height="400" :style="spinStyle">
     </div>

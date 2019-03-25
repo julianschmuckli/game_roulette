@@ -6,7 +6,7 @@
 export default {
   name: "Chip",
   props: {
-    value: String
+    value: Number
   }
 }
 </script>
@@ -14,7 +14,7 @@ export default {
 <style>
 .chip{
   position: absolute;
-  top: 24%;
+  top: calc(50% - 12px);
   left: calc(50% - 12px);
   opacity: 0.9;
   display: inline;

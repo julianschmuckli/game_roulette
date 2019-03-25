@@ -8,15 +8,15 @@
           <td class="black"><div>31</div></td>
           <td class="black"><div>28</div></td>
           <td class="red"><div>25</div></td>
-          <td class="black"><div>22</div></td>
-          <td class="red"><div>19</div></td>
-          <td class="red"><div>16</div></td>
-          <td class="black"><div>13</div></td>
-          <td class="black"><div>10</div></td>
-          <td class="red"><div>7</div></td>
-          <td class="black"><div>4</div></td>
-          <td class="red"><div>1</div></td>
-          <td class="green" rowspan="3"><div>0</div></td>
+          <td class="black" data-name="twentytwo" @click="setChip"><div>22</div></td>
+          <td class="red" data-name="nineteen" @click="setChip"><div>19</div></td>
+          <td class="red" data-name="sixteen" @click="setChip"><div>16</div></td>
+          <td class="black" data-name="thirteen" @click="setChip"><div>13</div></td>
+          <td class="black" data-name="ten" @click="setChip"><div>10</div></td>
+          <td class="red" data-name="seven" @click="setChip"><div>7</div></td>
+          <td class="black" data-name="four" @click="setChip"><div>4</div></td>
+          <td class="red" data-name="one" @click="setChip"><div>1</div><Chip :value="one" /></td>
+          <td class="green" rowspan="3" data-name="zero" @click="setChip"><div>0</div><Chip :value="zero" /></td>
         </tr>
         <tr>
           <td class="normal" data-name="lineTwo" @click="setChip">&rarr;<Chip :value="lineTwo" /></td>
@@ -76,7 +76,45 @@ export default {
   name: "Board",
   data(){
     return {
-      direct_numbers: [], //When placed on just one full number
+      //When placed on just one full number
+      zero: 0,
+      one: 0,
+      two: 0,
+      three: 0,
+      four: 0,
+      five: 0,
+      six: 0,
+      seven: 0,
+      eight: 0,
+      nine: 0,
+      ten: 0,
+      eleven: 0,
+      twelve: 0,
+      thirteen: 0,
+      fourteen: 0,
+      fifteen: 0,
+      sixteen: 0,
+      seventeen: 0,
+      eighteen: 0,
+      nineteen: 0,
+      twenty: 0,
+      twentyone: 0,
+      twentytwo: 0,
+      twentythree: 0,
+      twentyfour: 0,
+      twentyfive: 0,
+      twentysix: 0,
+      twentyseven: 0,
+      twentyeight: 0,
+      twentynine: 0,
+      thirty: 0,
+      thirtyone: 0,
+      thirtytwo: 0,
+      thirtythree: 0,
+      thirtyfour: 0,
+      thirtyfive: 0,
+      thirtysix: 0,
+      //Others
       black: 0, //Placed on black
       red: 0, //Placed on red
       pair: 0, //Placed on pair
@@ -186,6 +224,45 @@ export default {
         this.lineTwo = 0;
       }
 
+    },
+    resetNaturalNumbers(){
+      this.zero=0;
+      this.one=0;
+      this.two=0;
+      this.three=0;
+      this.four=0;
+      this.five=0;
+      this.six=0;
+      this.seven=0;
+      this.eight=0;
+      this.nine=0;
+      this.ten=0;
+      this.eleven=0;
+      this.twelve=0;
+      this.thirteen=0;
+      this.fourteen=0;
+      this.fifteen=0;
+      this.sixteen=0;
+      this.seventeen=0;
+      this.eighteen=0;
+      this.nineteen=0;
+      this.twenty=0;
+      this.twentyone=0;
+      this.twentytwo=0;
+      this.twentythree=0;
+      this.twentyfour=0;
+      this.twentyfive=0;
+      this.twentysix=0;
+      this.twentyseven=0;
+      this.twentyeight=0;
+      this.twentynine=0;
+      this.thirty=0;
+      this.thirtyone=0;
+      this.thirtytwo=0;
+      this.thirtythree=0;
+      this.thirtyfour=0;
+      this.thirtyfive=0;
+      this.thirtysix=0;
     },
     setChip(e){
       var element = e.target;
