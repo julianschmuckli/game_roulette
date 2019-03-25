@@ -3,7 +3,7 @@
     <div class="outer_board">
       <table class="board">
         <tr>
-          <td class="normal">&rarr;</td>
+          <td class="normal" data-name="lineOne" @click="setChip"><div>&rarr;</div><Chip :value="lineOne" /></td>
           <td class="red"><div>34</div></td>
           <td class="black"><div>31</div></td>
           <td class="black"><div>28</div></td>
@@ -19,7 +19,7 @@
           <td class="green" rowspan="3"><div>0</div></td>
         </tr>
         <tr>
-          <td class="normal">&rarr;</td>
+          <td class="normal" data-name="lineTwo" @click="setChip">&rarr;<Chip :value="lineTwo" /></td>
           <td class="black"><div>35</div></td>
           <td class="red"><div>32</div></td>
           <td class="black"><div>29</div></td>
@@ -34,7 +34,7 @@
           <td class="black"><div>2</div></td>
         </tr>
         <tr>
-          <td class="normal">&rarr;</td>
+          <td class="normal" data-name="lineThree" @click="setChip">&rarr;<Chip :value="lineThree" /></td>
           <td class="red"><div>36</div></td>
           <td class="black"><div>33</div></td>
           <td class="red"><div>30</div></td>
@@ -85,7 +85,10 @@ export default {
       nineteenToThirtysix: 0, //Placed 19 -36
       oneToTwelve: 0, //Placed 1 - 12
       thirteenToTwentyfour: 0, //Placed 13 - 24
-      twentyfiveToThirtysix: 0 //Placed 25 - 36
+      twentyfiveToThirtysix: 0, //Placed 25 - 36
+      lineOne: 0,
+      lineTwo: 0,
+      lineThree: 0
     }
   },
   components:{
@@ -115,6 +118,10 @@ export default {
         case "red":
           this.black = 0;
           this.red = this.red * 2;
+          break;
+        default:
+          this.black = this.black / 2;
+          this.red = this.red / 2;
       }
 
       //1 - 18 and 19 - 36
@@ -124,6 +131,9 @@ export default {
       } else if(number >= 19 && number <= 36){
         this.oneToEighteen = 0;
         this.nineteenToThirtysix = this.nineteenToThirtysix * 2;
+      } else {
+        this.oneToEighteen = 0;
+        this.nineteenToThirtysix = 0;
       }
 
       //Impair and Pair
@@ -133,6 +143,9 @@ export default {
       } else if (number != 0 && number % 2 == 1) { //Impair
         this.pair = 0;
         this.impair = this.impair * 2;
+      } else {
+        this.pair = this.pair / 2;
+        this.impair = this.impair / 2;
       }
 
       //1 - 12 / 13 - 24 / 25 - 36
@@ -148,8 +161,30 @@ export default {
         this.oneToTwelve = 0;
         this.thirteenToTwentyfour = 0;
         this.twentyfiveToThirtysix = this.twentyfiveToThirtysix * 3;
+      } else {
+        this.oneToTwelve = 0;
+        this.thirteenToTwentyfour = 0;
+        this.twentyfiveToThirtysix = 0;
       }
 
+      //Lines
+      if(number != 0 && number % 3 == 0){ //Line of 36 - 3
+        this.lineOne = 0;
+        this.lineTwo = 0;
+        this.lineThree = this.lineThree * 3;
+      } else if(number != 0 && number % 3 == 1){ //Line of 34 - 1
+        this.lineThree = 0;
+        this.lineTwo = 0;
+        this.lineOne = this.lineOne * 3;
+      } else if(number != 0 && number % 3 == 2){ //Line of 35 - 2
+        this.lineOne = 0;
+        this.lineThree = 0;
+        this.lineTwo = this.lineTwo * 3;
+      } else {
+        this.lineOne = 0;
+        this.lineThree = 0;
+        this.lineTwo = 0;
+      }
 
     },
     setChip(e){
