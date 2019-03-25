@@ -4,17 +4,17 @@
       <table class="board">
         <tr>
           <td class="normal" data-name="lineOne" @click="setChip"><div>&rarr;</div><Chip :value="lineOne" /></td>
-          <td class="red"><div>34</div></td>
-          <td class="black"><div>31</div></td>
-          <td class="black"><div>28</div></td>
-          <td class="red"><div>25</div></td>
-          <td class="black" data-name="twentytwo" @click="setChip"><div>22</div></td>
-          <td class="red" data-name="nineteen" @click="setChip"><div>19</div></td>
-          <td class="red" data-name="sixteen" @click="setChip"><div>16</div></td>
-          <td class="black" data-name="thirteen" @click="setChip"><div>13</div></td>
-          <td class="black" data-name="ten" @click="setChip"><div>10</div></td>
-          <td class="red" data-name="seven" @click="setChip"><div>7</div></td>
-          <td class="black" data-name="four" @click="setChip"><div>4</div></td>
+          <td class="red" data-name="thirtyfour" @click="setChip"><div>34</div><Chip :value="thirtyfour" /></td>
+          <td class="black" data-name="thirtyone" @click="setChip"><div>31</div><Chip :value="thirtyone" /></td>
+          <td class="black" data-name="twentyeight" @click="setChip"><div>28</div><Chip :value="twentyeight" /></td>
+          <td class="red" data-name="twentyfive" @click="setChip"><div>25</div><Chip :value="twentyfive" /></td>
+          <td class="black" data-name="twentytwo" @click="setChip"><div>22</div><Chip :value="twentytwo" /></td>
+          <td class="red" data-name="nineteen" @click="setChip"><div>19</div><Chip :value="nineteen" /></td>
+          <td class="red" data-name="sixteen" @click="setChip"><div>16</div><Chip :value="sixteen" /></td>
+          <td class="black" data-name="thirteen" @click="setChip"><div>13</div><Chip :value="thirteen" /></td>
+          <td class="black" data-name="ten" @click="setChip"><div>10</div><Chip :value="ten" /></td>
+          <td class="red" data-name="seven" @click="setChip"><div>7</div><Chip :value="seven" /></td>
+          <td class="black" data-name="four" @click="setChip"><div>4</div><Chip :value="four" /></td>
           <td class="red" data-name="one" @click="setChip"><div>1</div><Chip :value="one" /></td>
           <td class="green" rowspan="3" data-name="zero" @click="setChip"><div>0</div><Chip :value="zero" /></td>
         </tr>
