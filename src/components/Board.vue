@@ -224,6 +224,198 @@ export default {
         this.lineTwo = 0;
       }
 
+      //Evaluate full numbers
+      var temp_value = 0;
+      switch (number) {
+        case 0:
+          temp_value = this.zero;
+          this.resetNaturalNumbers();
+          this.zero = temp_value * 36;
+          break;
+        case 1:
+          temp_value = this.one;
+          this.resetNaturalNumbers();
+          this.one = temp_value * 36;
+          break;
+        case 2:
+          temp_value = this.two;
+          this.resetNaturalNumbers();
+          this.two = temp_value * 36;
+          break;
+        case 3:
+          temp_value = this.three;
+          this.resetNaturalNumbers();
+          this.three = temp_value * 36;
+          break;
+        case 4:
+          temp_value = this.four;
+          this.resetNaturalNumbers();
+          this.four = temp_value * 36;
+          break;
+        case 5:
+          temp_value = this.five;
+          this.resetNaturalNumbers();
+          this.five = temp_value * 36;
+          break;
+        case 6:
+          temp_value = this.six;
+          this.resetNaturalNumbers();
+          this.six = temp_value * 36;
+          break;
+        case 7:
+          temp_value = this.seven;
+          this.resetNaturalNumbers();
+          this.seven = temp_value * 36;
+          break;
+        case 8:
+          temp_value = this.eight;
+          this.resetNaturalNumbers();
+          this.eight = temp_value * 36;
+          break;
+        case 9:
+          temp_value = this.nine;
+          this.resetNaturalNumbers();
+          this.nine = temp_value * 36;
+          break;
+        case 10:
+          temp_value = this.ten;
+          this.resetNaturalNumbers();
+          this.ten = temp_value * 36;
+          break;
+        case 11:
+          temp_value = this.eleven;
+          this.resetNaturalNumbers();
+          this.eleven = temp_value * 36;
+          break;
+        case 12:
+          temp_value = this.twelve;
+          this.resetNaturalNumbers();
+          this.twelve = temp_value * 36;
+          break;
+        case 13:
+          temp_value = this.thirteen;
+          this.resetNaturalNumbers();
+          this.thirteen = temp_value * 36;
+          break;
+        case 14:
+          temp_value = this.fourteen;
+          this.resetNaturalNumbers();
+          this.fourteen = temp_value * 36;
+          break;
+        case 15:
+          temp_value = this.fifteen;
+          this.resetNaturalNumbers();
+          this.fifteen = temp_value * 36;
+          break;
+        case 16:
+          temp_value = this.sixteen;
+          this.resetNaturalNumbers();
+          this.sixteen = temp_value * 36;
+          break;
+        case 17:
+          temp_value = this.seventeen;
+          this.resetNaturalNumbers();
+          this.seventeen = temp_value * 36;
+          break;
+        case 18:
+          temp_value = this.eighteen;
+          this.resetNaturalNumbers();
+          this.eighteen = temp_value * 36;
+          break;
+        case 19:
+          temp_value = this.nineteen;
+          this.resetNaturalNumbers();
+          this.nineteen = temp_value * 36;
+          break;
+        case 20:
+          temp_value = this.twenty;
+          this.resetNaturalNumbers();
+          this.twenty = temp_value * 36;
+          break;
+        case 21:
+          temp_value = this.twentyone;
+          this.resetNaturalNumbers();
+          this.twentytwo = temp_value * 36;
+          break;
+        case 22:
+          temp_value = this.twentytwo;
+          this.resetNaturalNumbers();
+          this.twentytwo = temp_value * 36;
+          break;
+        case 23:
+          temp_value = this.twentythree;
+          this.resetNaturalNumbers();
+          this.twentythree = temp_value * 36;
+          break;
+        case 24:
+          temp_value = this.twentyfour;
+          this.resetNaturalNumbers();
+          this.twentyfour = temp_value * 36;
+          break;
+        case 25:
+          temp_value = this.twentyfive;
+          this.resetNaturalNumbers();
+          this.twentyfive = temp_value * 36;
+          break;
+        case 26:
+          temp_value = this.twentysix;
+          this.resetNaturalNumbers();
+          this.twentysix = temp_value * 36;
+          break;
+        case 27:
+          temp_value = this.twentyseven;
+          this.resetNaturalNumbers();
+          this.twentyseven = temp_value * 36;
+          break;
+        case 28:
+          temp_value = this.twentyeight;
+          this.resetNaturalNumbers();
+          this.twentyeight = temp_value * 36;
+          break;
+        case 29:
+          temp_value = this.twentynine;
+          this.resetNaturalNumbers();
+          this.twentynine = temp_value * 36;
+          break;
+        case 30:
+          temp_value = this.thirty;
+          this.resetNaturalNumbers();
+          this.thirty = temp_value * 36;
+          break;
+        case 31:
+          temp_value = this.thirtyone;
+          this.resetNaturalNumbers();
+          this.thirtyone = temp_value * 36;
+          break;
+        case 32:
+          temp_value = this.thirtytwo;
+          this.resetNaturalNumbers();
+          this.thirtytwo = temp_value * 36;
+          break;
+        case 33:
+          temp_value = this.thirtythree;
+          this.resetNaturalNumbers();
+          this.thirtythree = temp_value * 36;
+          break;
+        case 34:
+          temp_value = this.thirtyfour;
+          this.resetNaturalNumbers();
+          this.thirtyfour = temp_value * 36;
+          break;
+        case 35:
+          temp_value = this.thirtyfive;
+          this.resetNaturalNumbers();
+          this.thirtyfive = temp_value * 36;
+          break;
+        case 36:
+          temp_value = this.thirtysix;
+          this.resetNaturalNumbers();
+          this.thirtysix = temp_value * 36;
+          break;
+        default:
+          this.resetNaturalNumbers();
+          break;
+      }
     },
     resetNaturalNumbers(){
       this.zero=0;
