@@ -20,33 +20,33 @@
         </tr>
         <tr>
           <td class="normal" data-name="lineTwo" @click="setChip">&rarr;<Chip :value="lineTwo" /></td>
-          <td class="black"><div>35</div></td>
-          <td class="red"><div>32</div></td>
-          <td class="black"><div>29</div></td>
-          <td class="black"><div>26</div></td>
-          <td class="red"><div>23</div></td>
-          <td class="black"><div>20</div></td>
-          <td class="black"><div>17</div></td>
-          <td class="red"><div>14</div></td>
-          <td class="black"><div>11</div></td>
-          <td class="black"><div>8</div></td>
-          <td class="red"><div>5</div></td>
-          <td class="black"><div>2</div></td>
+          <td class="black" data-name="thirtyfive" @click="setChip"><div>35</div><Chip :value="thirtyfive" /></td>
+          <td class="red" data-name="thirtytwo" @click="setChip"><div>32</div><Chip :value="thirtytwo" /></td>
+          <td class="black" data-name="twentynine" @click="setChip"><div>29</div><Chip :value="twentynine" /></td>
+          <td class="black" data-name="twentysix" @click="setChip"><div>26</div><Chip :value="twentysix" /></td>
+          <td class="red" data-name="twentythree" @click="setChip"><div>23</div><Chip :value="twentythree" /></td>
+          <td class="black" data-name="twenty" @click="setChip"><div>20</div><Chip :value="twenty" /></td>
+          <td class="black" data-name="seventeen" @click="setChip"><div>17</div><Chip :value="seventeen" /></td>
+          <td class="red" data-name="fourteen" @click="setChip"><div>14</div><Chip :value="fourteen" /></td>
+          <td class="black" data-name="eleven" @click="setChip"><div>11</div><Chip :value="eleven" /></td>
+          <td class="black" data-name="eight" @click="setChip"><div>8</div><Chip :value="eight" /></td>
+          <td class="red" data-name="five" @click="setChip"><div>5</div><Chip :value="five" /></td>
+          <td class="black" data-name="two" @click="setChip"><div>2</div><Chip :value="two" /></td>
         </tr>
         <tr>
           <td class="normal" data-name="lineThree" @click="setChip">&rarr;<Chip :value="lineThree" /></td>
-          <td class="red"><div>36</div></td>
-          <td class="black"><div>33</div></td>
-          <td class="red"><div>30</div></td>
-          <td class="red"><div>27</div></td>
-          <td class="black"><div>24</div></td>
-          <td class="red"><div>21</div></td>
-          <td class="red"><div>18</div></td>
-          <td class="black"><div>15</div></td>
-          <td class="red"><div>12</div></td>
-          <td class="red"><div>9</div></td>
-          <td class="black"><div>6</div></td>
-          <td class="red"><div>3</div></td>
+          <td class="red" data-name="thirtysix" @click="setChip"><div>36</div><Chip :value="thirtysix" /></td>
+          <td class="black" data-name="thirtythree" @click="setChip"><div>33</div><Chip :value="thirtythree" /></td>
+          <td class="red" data-name="thirty" @click="setChip"><div>30</div><Chip :value="thirty" /></td>
+          <td class="red" data-name="twentyseven" @click="setChip"><div>27</div><Chip :value="twentyseven" /></td>
+          <td class="black" data-name="twentyfour" @click="setChip"><div>24</div><Chip :value="twentyfour" /></td>
+          <td class="red" data-name="twentyone" @click="setChip"><div>21</div><Chip :value="twentyone" /></td>
+          <td class="red" data-name="eighteen" @click="setChip"><div>18</div><Chip :value="eighteen" /></td>
+          <td class="black" data-name="fifteen" @click="setChip"><div>15</div><Chip :value="fifteen" /></td>
+          <td class="red" data-name="twelve" @click="setChip"><div>12</div><Chip :value="twelve" /></td>
+          <td class="red" data-name="nine" @click="setChip"><div>9</div><Chip :value="nine" /></td>
+          <td class="black" data-name="six" @click="setChip"><div>6</div><Chip :value="six" /></td>
+          <td class="red" data-name="three" @click="setChip"><div>3</div><Chip :value="three" /></td>
         </tr>
         <tr>
           <td class="nothing"></td>
