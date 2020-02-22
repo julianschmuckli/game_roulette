@@ -211,10 +211,13 @@
           </td>
         </tr>
       </table>
-      <div>
-        <p>Your balance: {{ currentBalance }}</p>
-      </div>
     </div>
+    <div>
+        <p>Balance: <b>{{ currentBalance }} CHF</b> 
+        {{ lastWin == 0 ? "" : " (+ " + lastWin + " CHF)" }}</p>
+        <button @click="clearBoard">Clear board</button>&nbsp;
+        <button @click="resetGame">Reset game</button>
+      </div>
   </div>
 </template>
 
@@ -276,7 +279,9 @@ export default {
       twentyfiveToThirtysix: 0, //Placed 25 - 36
       lineOne: 0,
       lineTwo: 0,
-      lineThree: 0
+      lineThree: 0,
+
+      lastWin: 0
     };
   },
   components: {
@@ -689,6 +694,8 @@ export default {
 
       GameStoreChanger.setNewBalance(GameStore.currentBalance + win);
 
+      this.lastWin = win;
+
       this.clearBoard();
     },
     clearBoard() {
@@ -706,6 +713,10 @@ export default {
       this.lineOne = 0;
       this.lineTwo = 0;
       this.lineThree = 0;
+    },
+    resetGame() {
+      GameStoreChanger.setNewBalance(50);
+      this.clearBoard();
     }
   }
 };

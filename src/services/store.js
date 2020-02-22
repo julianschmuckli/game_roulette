@@ -2,7 +2,7 @@ import Vue from 'vue';
 
 export const GameStore = Vue.observable({
   currentNumber: undefined,
-  currentBalance: 50
+  currentBalance: localStorage.getItem("balance") ? localStorage.getItem("balance") : 50
 });
 
 export const GameStoreChanger = {
@@ -12,5 +12,6 @@ export const GameStoreChanger = {
 
   setNewBalance(balance) {
     GameStore.currentBalance = balance;
+    localStorage.setItem("balance", balance);
   }
 };
