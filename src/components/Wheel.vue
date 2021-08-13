@@ -276,7 +276,6 @@ export default{
 
 #wheel_svg{
   width: 75%;
-  height: 75%;
 }
 
 #wheel_image{
