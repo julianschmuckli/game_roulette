@@ -274,10 +274,6 @@ export default{
     }
 }
 
-#wheel_svg{
-  width: 75%;
-}
-
 #wheel_image{
   text-align: center;
   margin-top: 20px;
